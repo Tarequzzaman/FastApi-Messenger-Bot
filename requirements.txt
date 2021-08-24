@@ -15,6 +15,7 @@ prompt-toolkit==3.0.6
 pycodestyle==2.6.0
 pydantic==1.6.1
 pyflakes==2.2.0
+python-dotenv==0.19.0
 regex==2020.7.14
 requests==2.24.0
 simplejson==3.17.2
@@ -28,4 +29,3 @@ uvloop==0.14.0
 wcwidth==0.2.5
 websockets==8.1
 wit==6.0.0
-

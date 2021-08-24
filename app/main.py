@@ -3,7 +3,7 @@ import json
 import logging
 import uvicorn
 import requests
-from typing import Optional
+from typing import AnyStr, Optional
 from fastapi import FastAPI, Query, HTTPException, Request
 from fastapi.responses import PlainTextResponse
 import hashlib
@@ -19,6 +19,10 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("webhook")
 
+
+@app.get("/")
+async def index():
+    return {"data": "hello World"}
 
 @app.get("/webhook")
 async def verify_token(
