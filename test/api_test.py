@@ -15,7 +15,7 @@ def test_read_main():
 
 def test_webhook_get():
     response = client.get(
-        "/webhook",
-        params={"hub.verify_token": "hub.verify_token", "hub.mode": "subscribe"},
+        "/webhook?hub.verify_token=token123&hub.mode=subscribe",
+        # params={"hub.verify_token": "hub.verify_token", "hub.mode": "subscribe"},
     )
     assert response.status_code == 200

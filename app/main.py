@@ -22,7 +22,7 @@ logger = logging.getLogger("webhook")
 
 @app.get("/")
 async def index():
-    return {"data": "hello World"}
+    return {"data": "Hello World"}
 
 @app.get("/webhook")
 async def verify_token(
