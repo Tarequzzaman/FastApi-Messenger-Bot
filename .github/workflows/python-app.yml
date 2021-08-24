@@ -20,6 +20,16 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        # envkey_DEBUG: false
+        envkey_FB_APP_SECRET: ${{ secrets.FB_APP_SECRET }}
+        envkey_FB_VERIFY_TOKEN: ${{ secrets.FB_VERIFY_TOKEN }}
+        envkey_FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN}}
+        file_name: .env
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -34,5 +44,5 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        export PYTHONPATH=src
+        export PYTHONPATH=app
         pytest
