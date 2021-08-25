@@ -1,7 +1,9 @@
+from os import getenv
 import pytest
+from dotenv import load_dotenv
 from starlette.testclient import TestClient
-
 from main import app
+load_dotenv()
 
 
 client = TestClient(app)
@@ -14,8 +16,10 @@ def test_read_main():
 
 
 def test_webhook_get():
+    token = getenv("FB_VERIFY_TOKEN")
+
     response = client.get(
-        "/webhook?hub.verify_token=token123&hub.mode=subscribe",
+        "/webhook?hub.verify_token="+token+"&hub.mode=subscribe",
         # params={"hub.verify_token": "hub.verify_token", "hub.mode": "subscribe"},
     )
     assert response.status_code == 200
